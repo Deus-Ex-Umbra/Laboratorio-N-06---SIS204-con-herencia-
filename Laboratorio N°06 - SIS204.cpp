@@ -139,7 +139,7 @@ bool main(int argv, char** argc) {
 * Atentamente: Aparicio Llanquipacha Gabriel.
 * Carrera: Ingeniería en Ciencias de la Computación.
 * ⣠⣤⣤⣤⣤⣴⣿⣤⡄            
-* ⣿⣿⣿⣿⣿⣿⣿⣿⠁            
+*⣿⣿⣿⣿⣿⣿⣿⣿⠁            
 * ⠙⠿⢿⣿⣿⣿⣿⣿⣷⣶⣶⣶⣿⣿⣷⣶⣶⣤⣀  
 *    ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧ 
 *    ⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡆
