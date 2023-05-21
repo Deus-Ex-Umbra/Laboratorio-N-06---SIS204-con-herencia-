@@ -29,9 +29,9 @@ public:
 		std::cout << "Ingrese el nombre del estudiante: "; std::getline(std::cin, nodo_nuevo->estudiante.nombre);
 		std::cout << "Ingrese la direccion del estudiante: "; std::getline(std::cin, nodo_nuevo->estudiante.direccion);
 		do {
-			std::cout << "Ingrese el sexo del estudiante: "; std::getline(std::cin, nodo_nuevo->estudiante.sexo); std::cin.ignore(' ');
+			std::cout << "Ingrese el sexo del estudiante: "; std::getline(std::cin, nodo_nuevo->estudiante.sexo);
 			std::transform(nodo_nuevo->estudiante.sexo.begin(), nodo_nuevo->estudiante.sexo.end(), nodo_nuevo->estudiante.sexo.begin(), ::tolower);
-		} while (nodo_nuevo->estudiante.sexo != "masculino" || nodo_nuevo->estudiante.sexo != "femenino");
+		} while (nodo_nuevo->estudiante.sexo != "masculino" && nodo_nuevo->estudiante.sexo != "femenino");
 		std::cout << "Ingrese la edad del estudiante: "; 
 		while (!(std::cin >> nodo_nuevo->estudiante.edad) || nodo_nuevo->estudiante.edad < 0 || nodo_nuevo->estudiante.edad > 125) {
 			std::cin.clear();
@@ -74,7 +74,7 @@ public:
 	}
 	virtual void mostrar(Nodo* nodo_c) override {
 		Nodo_Estudiante* nodo_actual = nodo_inicial;
-		int indice = 0;
+		int indice = 1;
 		std::cout << "Cantidad de estudiantes: " << cantidad_estudiantes(nodo_c) << "\n";
 		std::cout << "--------------------------------------------------------------------\n";
 		while (nodo_actual != nullptr) {
@@ -93,10 +93,12 @@ public:
 	virtual bool vacia(Nodo* nodo_c) override { return (static_cast<Nodo_Asignatura*>(nodo_c)->cantidad_estudiantes == 0); }
 	void mostrar_masculinos(Nodo* nodo_c) {
 		Nodo_Estudiante* nodo_actual = nodo_inicial;
+		int indice = 1;
 		std::cout << "Cantidad de estudiantes: " << cantidad_estudiantes(nodo_c) << "\n";
 		std::cout << "--------------------------------------------------------------------\n";
 		while (nodo_actual != nullptr) {
 			if (nodo_actual->estudiante.sexo == "masculino") {
+				std::cout << "Estudiante N°" << indice++ << "\n";
 				std::cout << "Codigo: " << nodo_actual->estudiante.codigo << "\n";
 				std::cout << "Nombre: " << nodo_actual->estudiante.nombre << "\n";
 				std::cout << "Direccion: " << nodo_actual->estudiante.direccion << "\n";
@@ -110,10 +112,12 @@ public:
 	}
 	void mostrar_femeninos(Nodo* nodo_c) {
 		Nodo_Estudiante* nodo_actual = nodo_inicial;
+		int indice = 1;
 		std::cout << "Cantidad de estudiantes: " << cantidad_estudiantes(nodo_c) << "\n";
 		std::cout << "--------------------------------------------------------------------\n";
 		while (nodo_actual != nullptr) {
 			if (nodo_actual->estudiante.sexo == "femenino") {
+				std::cout << "Estudiante N°" << indice++ << "\n";
 				std::cout << "Codigo: " << nodo_actual->estudiante.codigo << "\n";
 				std::cout << "Nombre: " << nodo_actual->estudiante.nombre << "\n";
 				std::cout << "Direccion: " << nodo_actual->estudiante.direccion << "\n";

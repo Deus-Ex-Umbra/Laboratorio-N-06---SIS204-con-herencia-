@@ -100,7 +100,7 @@ public:
 		nodo_buscar = buscar(0, codigo, nodo_buscar);
 		if (encontrar(nodo_buscar))
 		{
-			if (lista_estudiantes.vacia(nodo_buscar)) { std::cout << "Error: Lista de Estudiantes Vacía.\n--------------------------------------------------------------------\nSe insertará un nuevo estudiante\n"; _opciones = 5; std::cout << "--------------------------------------------------------------------\n";
+			if (lista_estudiantes.vacia(nodo_buscar) && _opciones > 5) { std::cout << "Error: Lista de Estudiantes Vacía.\n--------------------------------------------------------------------\nSe insertará un nuevo estudiante\n"; _opciones = 5; std::cout << "--------------------------------------------------------------------\n";
 			}
 			if (nodo_buscar->siguiente_e == nullptr) {
 				Lista_Estudiantes lista_nueva(nodo_buscar);
@@ -109,13 +109,14 @@ public:
 			switch (_opciones)
 			{
 			case 5:
-				std::cout << "Escriba la posición del Estudiante: ";
+				std::cout << "Escriba la posición donde se ingresará el Estudiante: ";
 				while (!(std::cin >> (posicion)) || (posicion < 1 || posicion > nodo_buscar->cantidad_estudiantes + 1)) {
 					std::cin.clear();
 					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 					std::cout << "--------------------------------------------------------------------\n";
 					std::cout << "Escriba una posición válida: ";
 				}
+				std::cout << "--------------------------------------------------------------------\n";
 				std::cin.ignore();
 				lista_estudiantes.insertar(posicion, nodo_buscar);
 				break;
