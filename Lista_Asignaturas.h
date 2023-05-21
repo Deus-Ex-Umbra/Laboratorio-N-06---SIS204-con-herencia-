@@ -13,11 +13,10 @@ private:
 	Lista_Estudiantes lista_estudiantes;
 	std::string codigo;
 	int posicion;
-	virtual Nodo_Asignatura* buscar(int _posicion = 0, std::string _codigo = "", Nodo* nodo_c = nullptr) override {
-		Nodo_Asignatura* nodo_actual = static_cast<Nodo_Asignatura*>(nodo_c);
+	virtual Nodo_Asignatura* buscar(int _posicion = 0, std::string _codigo = " ", Nodo* nodo_c = nullptr) override {
 		int indice = 1;
-		while (nodo_actual != nullptr && nodo_actual->asignatura.codigo != _codigo && indice != _posicion + 1) { 
-			nodo_actual = nodo_actual->siguiente;
+		while ((static_cast<Nodo_Asignatura*>(nodo_c) != nullptr) && (static_cast<Nodo_Asignatura*>(nodo_c)->asignatura.codigo != _codigo) && (indice != _posicion - 1)) {
+			nodo_c = static_cast<Nodo_Asignatura*>(nodo_c)->siguiente;
 			indice++;
 		}
 		return static_cast<Nodo_Asignatura*>(nodo_c);
@@ -45,7 +44,7 @@ public:
 			nodo_inicial = nodo_nuevo;
 			nodo_cabeza->siguiente_a = nodo_nuevo;
 		} else {
-			nodo_actual = buscar(_posicion, "", nodo_nuevo);
+			nodo_actual = buscar(_posicion, "", nodo_actual);
 			nodo_nuevo->siguiente_e = nullptr;
 			nodo_nuevo->siguiente = nodo_actual->siguiente;
 			if (nodo_actual->siguiente != nullptr) { nodo_actual->siguiente->anterior = nodo_nuevo; }
@@ -77,9 +76,11 @@ public:
 	}
 	virtual void mostrar(Nodo* nodo_c = nullptr) override {
 		Nodo_Asignatura* nodo_actual = nodo_inicial;
+		int indice = 1;
 		std::cout << "Cantidad de Asignaturas: " << nodo_cabeza->cantidad_asignaturas << "\n";
 		std::cout << "--------------------------------------------------------------------\n";
 		while (nodo_actual != nullptr) {
+			std::cout << "Asignatura N°" << indice++ << "\n";
 			std::cout << "Codigo de la Asignatura: " << nodo_actual->asignatura.codigo << "\n";
 			std::cout << "Nombre de la Asignatura: " << nodo_actual->asignatura.nombre << "\n";
 			std::cout << "Descripcion de la Asignatura: " << nodo_actual->asignatura.descripcion << "\n";
@@ -143,15 +144,17 @@ public:
 	}
 	void mostrar_todo() {
 		Nodo_Asignatura* nodo_actual = nodo_inicial;
+		int indice = 1;
 		while (nodo_actual != nullptr) {
+			std::cout << "Asignatura N°" << indice++ << "\n";
+			std::cout << "--------------------------------------------------------------------\n";
 			std::cout << "Codigo de la Asignatura: " << nodo_actual->asignatura.codigo << "\n";
 			std::cout << "Nombre de la Asignatura: " << nodo_actual->asignatura.nombre << "\n";
 			std::cout << "Descripcion de la Asignatura: " << nodo_actual->asignatura.descripcion << "\n";
 			std::cout << "Cantidad de Horas de la Asignatura: " << nodo_actual->asignatura.horas << "\n";
 			std::cout << "--------------------------------------------------------------------\n";
-			lista_estudiantes.mostrar(nodo_actual);
+			if (!lista_estudiantes.vacia(nodo_actual)) lista_estudiantes.mostrar(nodo_actual);
 			nodo_actual = nodo_actual->siguiente;
 		}
 	}
 };
-

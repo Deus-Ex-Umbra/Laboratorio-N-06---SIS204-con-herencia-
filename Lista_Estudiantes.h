@@ -9,14 +9,13 @@ class Lista_Estudiantes : public Lista
 {
 private:
 	Nodo_Estudiante* nodo_inicial;
-	virtual Nodo_Estudiante* buscar(int _posicion = 0, std::string _codigo = "", Nodo* nodo_c = nullptr) override {
+	virtual Nodo_Estudiante* buscar(int _posicion = 0, std::string _codigo = " ", Nodo* nodo_c = nullptr) override {
 		int indice = 1;
-		Nodo_Estudiante* nodo_actual = static_cast<Nodo_Estudiante*>(nodo_c);
-		while (nodo_actual != nullptr && nodo_actual->estudiante.codigo != _codigo && indice != _posicion + 1) {
-			nodo_actual = nodo_actual->siguiente;
+		while ((static_cast<Nodo_Estudiante*>(nodo_c) != nullptr) && (static_cast<Nodo_Estudiante*>(nodo_c)->estudiante.codigo != _codigo) && (indice != _posicion - 1)) {
+			nodo_c = static_cast<Nodo_Estudiante*>(nodo_c)->siguiente;
 			indice++;
 		}
-		return nodo_actual;
+		return static_cast<Nodo_Estudiante*>(nodo_c);
 	}
 	virtual bool encontrar(Nodo* nodo_c) override { return (static_cast<Nodo_Estudiante*>(nodo_c) != nullptr); }
 public:
@@ -63,7 +62,7 @@ public:
 		if (encontrar(nodo_eliminar)) {
 			if (nodo_eliminar->anterior != nullptr) { nodo_eliminar->anterior->siguiente = nodo_eliminar->siguiente; }
 			if (nodo_eliminar->siguiente != nullptr) { nodo_eliminar->siguiente->anterior = nodo_eliminar->anterior; }
-			if (nodo_eliminar == nodo_inicial) { nodo_inicial = nodo_eliminar->siguiente; }
+			if (nodo_eliminar == nodo_inicial) { nodo_inicial = nodo_eliminar->siguiente; static_cast<Nodo_Asignatura*>(nodo_c)->siguiente_e = nodo_inicial; }
 			delete nodo_eliminar;
 			if (vacia(nodo_c)) { static_cast<Nodo_Asignatura*>(nodo_c)->siguiente_e = nullptr; nodo_inicial = nullptr; }
 			std::cout << "Se ha eliminado correctamente la asignatura.\n";
@@ -75,9 +74,12 @@ public:
 	}
 	virtual void mostrar(Nodo* nodo_c) override {
 		Nodo_Estudiante* nodo_actual = nodo_inicial;
+		int indice = 0;
 		std::cout << "Cantidad de estudiantes: " << cantidad_estudiantes(nodo_c) << "\n";
 		std::cout << "--------------------------------------------------------------------\n";
 		while (nodo_actual != nullptr) {
+			std::cout << "Estudiante N°" << indice++ << "\n";
+			std::cout << "--------------------------------------------------------------------\n";
 			std::cout << "Codigo: " << nodo_actual->estudiante.codigo << "\n";
 			std::cout << "Nombre: " << nodo_actual->estudiante.nombre << "\n";
 			std::cout << "Direccion: " << nodo_actual->estudiante.direccion << "\n";
