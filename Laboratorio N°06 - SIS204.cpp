@@ -30,13 +30,13 @@ bool main(int argv, char** argc) {
 		std::cout << "6. Eliminar un Estudiante de una Asignatura.\n";
 		std::cout << "7. Mostrar los Estudiantes de una Asignatura.\n";
 		std::cout << "8. Mostrar la cantidad de Estudiantes.\n";
-		std::cout << "10. Mostrar los Estudiantes Masculinos de una Asignatura.\n";
-		std::cout << "11. Mostrar los Estudiantes Femeninos de una Asignatura.\n";
-		std::cout << "12. Mostrar toda la Multilista.\n";
-		std::cout << "13. Salir.\n";
+		std::cout << "9. Mostrar los Estudiantes Masculinos de una Asignatura.\n";
+		std::cout << "10. Mostrar los Estudiantes Femeninos de una Asignatura.\n";
+		std::cout << "11. Mostrar toda la Multilista.\n";
+		std::cout << "12. Salir.\n";
 		std::cout << "--------------------------------------------------------------------\n";
 		std::cout << "Seleccione una opcion: "; 
-		while (!(std::cin >> opcion) || (opcion < 1 || opcion > 13)) {
+		while (!(std::cin >> opcion) || (opcion < 1 || opcion > 12)) {
 			std::cin.clear();
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			std::cout << "--------------------------------------------------------------------\n";
