@@ -99,7 +99,8 @@ public:
 		nodo_buscar = buscar(0, codigo, nodo_buscar);
 		if (encontrar(nodo_buscar))
 		{
-			if (lista_estudiantes.vacia(nodo_buscar)) { std::cout << "Error: Lista de Estudiantes Vacía.\nSe insertará un nuevo estudiante\n"; _opciones = 5; }
+			if (lista_estudiantes.vacia(nodo_buscar)) { std::cout << "Error: Lista de Estudiantes Vacía.\nSe insertará un nuevo estudiante\n"; _opciones = 5; std::cout << "--------------------------------------------------------------------\n";
+			}
 			if (nodo_buscar->siguiente_e == nullptr) {
 				Lista_Estudiantes lista_nueva(nodo_buscar);
 				lista_estudiantes = lista_nueva;

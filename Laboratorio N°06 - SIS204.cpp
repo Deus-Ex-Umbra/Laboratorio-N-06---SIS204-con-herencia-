@@ -26,11 +26,10 @@ bool main(int argv, char** argc) {
 		std::cout << "2. Eliminar una Asignatura.\n";
 		std::cout << "3. Mostrar las Asignaturas.\n";
 		std::cout << "4. Mostrar la cantidad de Asignaturas.\n";
-		std::cout << "5. Insertar un Estudiante.\n";
-		std::cout << "6. Eliminar un Estudiante.\n";
-		std::cout << "7. Mostrar los Estudiantes.\n";
+		std::cout << "5. Insertar un Estudiante en una Asignatura.\n";
+		std::cout << "6. Eliminar un Estudiante de una Asignatura.\n";
+		std::cout << "7. Mostrar los Estudiantes de una Asignatura.\n";
 		std::cout << "8. Mostrar la cantidad de Estudiantes.\n";
-		std::cout << "9. Mostrar los Estudiantes de una Asignatura.\n";
 		std::cout << "10. Mostrar los Estudiantes Masculinos de una Asignatura.\n";
 		std::cout << "11. Mostrar los Estudiantes Femeninos de una Asignatura.\n";
 		std::cout << "12. Mostrar toda la Multilista.\n";
