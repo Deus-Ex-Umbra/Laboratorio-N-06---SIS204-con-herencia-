@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include <string>
 #include "Lista_Asignaturas.h"
 bool main(int argv, char** argc) {
@@ -41,7 +41,7 @@ bool main(int argv, char** argc) {
 			std::cin.clear();
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			std::cout << "--------------------------------------------------------------------\n";
-			std::cout << "Seleccione una opci�n v�lida: ";
+			std::cout << "Seleccione una opción válida: ";
 		}
 		if (opcion > 1 && opcion < 13 && lista_asignaturas.vacia()) {
 			std::cout << "--------------------------------------------------------------------\n";
@@ -51,72 +51,72 @@ bool main(int argv, char** argc) {
 		std::cin.ignore();
 		switch (opciones = static_cast<Opciones>(opcion)) {
 		case INSERTAR_ASIGNATURA:
-			std::cout << "***Se insertar� una Asignatura***\n";
+			std::cout << "***Se insertará una Asignatura***\n";
 			std::cout << "--------------------------------------------------------------------\n";
-			std::cout << "Escriba la posici�n donde se insertar� la Asignatura: ";
+			std::cout << "Escriba la posición donde se insertará la Asignatura: ";
 			while (!(std::cin >> (posicion)) || (posicion < 1 || posicion > lista_asignaturas.cantidad_asignaturas() + 1)) {
 				std::cin.clear();
 				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 				std::cout << "--------------------------------------------------------------------\n";
-				std::cout << "Escriba una posici�n v�lida: ";
+				std::cout << "Escriba una posición válida: ";
 			}
 			std::cout << "--------------------------------------------------------------------\n";
 			std::cin.ignore();
 			lista_asignaturas.insertar(posicion);
 			break;
 		case ELIMINAR_ASIGNATURA:
-			std::cout << "***Se eliminar� una Asignatura***\n";
+			std::cout << "***Se eliminará una Asignatura***\n";
 			std::cout << "--------------------------------------------------------------------\n";
-			std::cout << "Escriba el c�digo de la Asignatura que desea eliminar: "; std::cin >> codigo;
+			std::cout << "Escriba el código de la Asignatura que desea eliminar: "; std::cin >> codigo;
 			while (codigo == "") {
 				std::cout << "--------------------------------------------------------------------\n";
-				std::cout << "Escriba un c�digo v�lido: "; std::getline(std::cin, codigo);
+				std::cout << "Escriba un código válido: "; std::getline(std::cin, codigo);
 			}
 			std::cout << "--------------------------------------------------------------------\n";
 			lista_asignaturas.eliminar(codigo);
 			break;
 		case MOSTRAR_ASIGNATURAS:
-			std::cout << "***Se mostrar�n las Asignaturas***\n";
+			std::cout << "***Se mostrarán las Asignaturas***\n";
 			std::cout << "--------------------------------------------------------------------\n";
 			lista_asignaturas.mostrar();
 			break;
 		case MOSTRAR_CANTIDAD_ASIGNATURAS:
-			std::cout << "***Se mostrar� la cantidad de Asignaturas***\n";
+			std::cout << "***Se mostrará la cantidad de Asignaturas***\n";
 			std::cout << "--------------------------------------------------------------------\n";
 			std::cout << "La cantidad de Asignaturas es: " << lista_asignaturas.cantidad_asignaturas() << "\n";
 			break;
 		case INSERTAR_ESTUDIANTE:
-			std::cout << "***Se insertar� un Estudiante a una Asignatura***\n";
+			std::cout << "***Se insertará un Estudiante a una Asignatura***\n";
 			std::cout << "--------------------------------------------------------------------\n";
 			lista_asignaturas.ingresar_lista_estudiantes(static_cast<int>(INSERTAR_ESTUDIANTE));
 			break;
 		case ELIMINAR_ESTUDIANTE:
-			std::cout << "***Se eliminar� un Estudiante de una Asignatura***\n";
+			std::cout << "***Se eliminará un Estudiante de una Asignatura***\n";
 			std::cout << "--------------------------------------------------------------------\n";
 			lista_asignaturas.ingresar_lista_estudiantes(static_cast<int>(ELIMINAR_ESTUDIANTE));
 			break;
 		case MOSTRAR_ESTUDIANTES:
-			std::cout << "***Se mostrar�n los Estudiantes de una Asignatura***\n";
+			std::cout << "***Se mostrarán los Estudiantes de una Asignatura***\n";
 			std::cout << "--------------------------------------------------------------------\n";
 			lista_asignaturas.ingresar_lista_estudiantes(static_cast<int>(MOSTRAR_ESTUDIANTES));
 			break;
 		case MOSTRAR_CANTIDAD_ESTUDIANTES:
-			std::cout << "***Se mostrar� la cantidad de Estudiantes de una Asignatura***\n";
+			std::cout << "***Se mostrará la cantidad de Estudiantes de una Asignatura***\n";
 			std::cout << "--------------------------------------------------------------------\n";
 			lista_asignaturas.ingresar_lista_estudiantes(static_cast<int>(MOSTRAR_CANTIDAD_ESTUDIANTES));
 			break;
 		case MOSTRAR_ESTUDIANTES_MASCULINOS_ASIGNATURA:
-			std::cout << "***Se mostrar�n los Estudiantes Masculinos de una Asignatura***\n";
+			std::cout << "***Se mostrarán los Estudiantes Masculinos de una Asignatura***\n";
 			std::cout << "--------------------------------------------------------------------\n";
 			lista_asignaturas.ingresar_lista_estudiantes(static_cast<int>(MOSTRAR_ESTUDIANTES_MASCULINOS_ASIGNATURA));
 			break;
 		case MOSTRAR_ESTUDIANTES_FEMENINOS_ASIGNATURA:
-			std::cout << "***Se mostrar�n los Estudiantes Femeninos de una Asignatura***\n";
+			std::cout << "***Se mostrarán los Estudiantes Femeninos de una Asignatura***\n";
 			std::cout << "--------------------------------------------------------------------\n";
 			lista_asignaturas.ingresar_lista_estudiantes(static_cast<int>(MOSTRAR_ESTUDIANTES_FEMENINOS_ASIGNATURA));
 			break;
 		case MOSTRAR_MULTILISTA:
-			std::cout << "***Se mostrar� toda la Multilista***\n";
+			std::cout << "***Se mostrará toda la Multilista***\n";
 			std::cout << "--------------------------------------------------------------------\n";
 			lista_asignaturas.mostrar_todo();
 			break;
@@ -129,3 +129,23 @@ bool main(int argv, char** argc) {
 	} while (true);
 	return false;
 }
+/*Este proyecto pertenece originalmente a Aparicio Llanquipacha Gabriel, el cual
+* ha sido subido a GitHub con fines educativos y de prevención de posibles
+* pérdidas del mismo, por lo cual puede constarse de su autoría en el siguiente
+* enlace: (https://github.com/Deus-Ex-Umbra/Laboratorio-N-06---SIS204-con-herencia-), en el cual puede consultarse toda la
+* información necesaria para contactar con el autor (Aparicio Llanquipacha Gabriel)
+* y verificar la autoría del proyecto. En caso de encontrarse un código muy similar
+* o incluso plagiado, se ruega contactar con el autor del repositorio para tomar
+* las medidas necesarias.
+* Atentamente: Aparicio Llanquipacha Gabriel.
+* Carrera: Ingeniería en Ciencias de la Computación.
+* ⣠⣤⣤⣤⣤⣴⣿⣤⡄            
+* ⣿⣿⣿⣿⣿⣿⣿⣿⠁            
+* ⠙⠿⢿⣿⣿⣿⣿⣿⣷⣶⣶⣶⣿⣿⣷⣶⣶⣤⣀  
+*    ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧ 
+*    ⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡆
+*      ⠙⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠁
+*       ⢻⣿⣿⣿⡿⠉⠉⠉⠙⠿⣿⣿⣿⣿⣿⣧
+*       ⣸⡿⣸⣿⠁      ⠉⣿⡇⠉⣿⡿
+*      ⠚⠋⠥⠿⠇       ⠒⠛⠛⠡⠴⠿
+*/

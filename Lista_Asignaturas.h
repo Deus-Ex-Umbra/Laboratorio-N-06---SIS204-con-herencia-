@@ -141,6 +141,16 @@ public:
 		}
 	}
 	void mostrar_todo() {
+		Nodo_Asignatura* nodo_actual = nodo_inicial;
+		while (nodo_actual != nullptr) {
+			std::cout << "Codigo de la Asignatura: " << nodo_actual->asignatura.codigo << "\n";
+			std::cout << "Nombre de la Asignatura: " << nodo_actual->asignatura.nombre << "\n";
+			std::cout << "Descripcion de la Asignatura: " << nodo_actual->asignatura.descripcion << "\n";
+			std::cout << "Cantidad de Horas de la Asignatura: " << nodo_actual->asignatura.horas << "\n";
+			std::cout << "--------------------------------------------------------------------\n";
+			lista_estudiantes.mostrar(nodo_actual);
+			nodo_actual = nodo_actual->siguiente;
+		}
 	}
 };
 
