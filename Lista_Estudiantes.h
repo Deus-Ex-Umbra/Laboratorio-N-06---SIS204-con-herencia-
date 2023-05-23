@@ -25,13 +25,14 @@ public:
 		nodo_inicial = static_cast<Nodo_Asignatura*>(nodo_c)->siguiente_e;
 		Nodo_Estudiante* nodo_nuevo = new Nodo_Estudiante();
 		Nodo_Estudiante* nodo_actual = nodo_inicial;
-		std::cout << "Ingrese el codigo del estudiante: "; std::getline(std::cin, nodo_nuevo->estudiante.codigo);
-		std::cout << "Ingrese el nombre del estudiante: "; std::getline(std::cin, nodo_nuevo->estudiante.nombre);
-		std::cout << "Ingrese la direccion del estudiante: "; std::getline(std::cin, nodo_nuevo->estudiante.direccion);
+		std::cout << "Ingrese el Código del Estudiante: "; std::getline(std::cin, nodo_nuevo->estudiante.codigo);
+		std::cout << "Ingrese el Nombre del Estudiante: "; std::getline(std::cin, nodo_nuevo->estudiante.nombre);
+		std::cout << "Ingrese la Dirección del Estudiante: "; std::getline(std::cin, nodo_nuevo->estudiante.direccion);
 		do {
-			std::cout << "Ingrese el sexo del estudiante: "; std::getline(std::cin, nodo_nuevo->estudiante.sexo);
+			std::cout << "Ingrese el Sexo del Estudiante: "; std::getline(std::cin, nodo_nuevo->estudiante.sexo);
 			std::transform(nodo_nuevo->estudiante.sexo.begin(), nodo_nuevo->estudiante.sexo.end(), nodo_nuevo->estudiante.sexo.begin(), ::tolower);
 		} while (nodo_nuevo->estudiante.sexo != "masculino" && nodo_nuevo->estudiante.sexo != "femenino");
+		nodo_nuevo->estudiante.sexo = (nodo_nuevo->estudiante.sexo == "masculino") ? "Masculino" : "Femenino";
 		std::cout << "Ingrese la edad del estudiante: "; 
 		while (!(std::cin >> nodo_nuevo->estudiante.edad) || nodo_nuevo->estudiante.edad < 0 || nodo_nuevo->estudiante.edad > 125) {
 			std::cin.clear();
